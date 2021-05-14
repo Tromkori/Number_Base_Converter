@@ -1,0 +1,58 @@
+<html>
+ <head></head>
+ <body>
+  <h2 style="text-align: center;">List of relational operators</h2> 
+  <p>Kotlin provides six relational operators to compare numbers:</p> 
+  <ul> 
+   <li><code class="language-kotlin">==</code> (equal to)</li> 
+   <li><code class="language-kotlin">!=</code> (not equal to)</li> 
+   <li><code class="language-kotlin">&gt;</code> (greater than)</li> 
+   <li><code class="language-kotlin">&gt;=</code> (greater than or equal to)</li> 
+   <li><code class="language-kotlin">&lt;</code> (less than)</li> 
+   <li><code class="language-kotlin">&lt;=</code> (less than or equal to)</li> 
+  </ul> 
+  <p>The result of applying a relational operator to its operands takes the Boolean type (<code class="language-kotlin">true</code> or <code class="language-kotlin">false</code>) regardless of the types of operands.</p> 
+  <h2 style="text-align: center;">Comparing integer numbers</h2> 
+  <p>Relational operators allow you to compare easily, among other things, two integer numbers. Here are some examples:</p> 
+  <pre><code class="language-kotlin">val one = 1
+val two = 2
+val three = 3
+val four = 4
+
+val oneIsOne = one == one // true
+
+val res1 = two &lt;= three // true
+val res2 = two != four  // true
+val res3 = two &gt; four   // false
+val res4 = one == three // false</code></pre> 
+  <p>You can use relational operators in mixed expressions together with arithmetic operators. In such expressions, relational operators have a lower priority than arithmetic operators.</p> 
+  <p>Let's take a look at the example below. First, two sums are calculated, and then they are compared with a little help from the operator <code class="language-kotlin">&gt;</code>.</p> 
+  <pre><code class="language-java">val number = 1000
+val result = number + 10 &gt; number + 9 // 1010 &gt; 1009 is true</code></pre> 
+  <p>The <code class="language-kotlin">result</code> is <code class="language-kotlin">true</code>.</p> 
+  <h2 style="text-align: center;">Joining relational operations using logical operators</h2> 
+  <p>In Kotlin, you cannot write an expression like this:</p> 
+  <pre><code class="language-java">a &lt;= b &lt;= c</code></pre> 
+  <p>Instead, you should join two Boolean expressions using logical operators like <code class="language-kotlin">||</code> and <code class="language-kotlin">&amp;&amp;</code>.</p> 
+  <p>For example, let's say we'd like to check the validity of this expression:</p> 
+  <pre><code class="language-java">100 &lt; number &lt; 200</code></pre> 
+  <p>To do that, we should write something like this:</p> 
+  <pre><code class="language-java">number &gt; 100 &amp;&amp; number &lt; 200</code></pre> 
+  <p>Also, we can put different parts of the expression in parentheses:</p> 
+  <pre><code class="language-java">(number &gt; 100) &amp;&amp; (number &lt; 200)</code></pre> 
+  <p>Though, parentheses are not necessary here because relational operators have a higher priority than logical ones.</p> 
+  <p>Logical operators allow you to join a sequence of relational operations into a single expression. This is a widely used trick in programming.</p> 
+  <p>As a more complex example, let's write a program that reads an integer number and checks if the number belongs to the range [100; 200]<strong>, </strong>including 100 and 200 in the range.</p> 
+  <pre><code class="language-kotlin">fun main() {
+    val left = 100
+    val right = 200
+    val number = readLine()!!.toInt()
+
+    val inRange = number &gt;= left &amp;&amp; number &lt;= right // joining two expressions using AND
+
+    println(inRange)
+}</code></pre> 
+  <p>Here is a set of input values and the corresponding outputs: 50 is false; 99 is false; 100 is true; 199 is true; 200 is true; 201 is false; and so on.</p> 
+  <p>Further, we will learn how to simplify programs like this using some features of Kotlin.</p>
+ </body>
+</html>
